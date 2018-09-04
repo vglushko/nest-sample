@@ -1,0 +1,32 @@
+{
+  "name": "nest-sample",
+  "version": "0.0.1",
+  "description": "Sample NestJS application",
+  "main": "./src/index.js",
+  "scripts": {
+    "start": "npm run build:live",
+    "build:live": "nodemon --exec ./node_modules/.bin/ts-node --./src/index.ts"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vglushko/nest-sample.git"
+  },
+  "keywords": [
+    "nestjs"
+  ],
+  "author": "vitaliy glushko",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vglushko/nest-sample/issues"
+  },
+  "homepage": "https://github.com/vglushko/nest-sample#readme",
+  "devDependencies": {
+    "@types/node": "^10.9.4",
+    "gulp": "^3.9.1",
+    "gulp-sourcemaps": "^2.6.4",
+    "gulp-typescript": "^5.0.0-alpha.3",
+    "nodemon": "^1.18.4",
+    "ts-node": "^7.0.1",
+    "typescript": "^3.0.3"
+  }
+}
