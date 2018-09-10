@@ -1,7 +1,9 @@
 'use strict';
 
 module.exports = function ctor() {
-    this.source = "./src";
-    this.destination = "./dist";
-    this.sourceFiles = this.source + "/**/*.ts";
+    this.source = './src';
+    this.destination = './dest';
+    this.sourceFiles = `${this.source}/**/*.ts`;
+    this.testSource = 'specs';
+    this.jsTestFiles = `${this.destination}/${this.testSource}/**/*.ts`;
 }

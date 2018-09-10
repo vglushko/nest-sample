@@ -1,7 +1,9 @@
 {
   "files": [
     "src/*.ts",
-    "src/**/*.ts"
+    "src/**/*.ts",
+    "specs/*.ts",
+    "specs/**/*.ts"
   ],
   "compilerOptions": {
     /* Basic Options */

@@ -4,9 +4,15 @@ var gulp = require('gulp'),
     tsProject = ts.createProject('tsconfig.json'),
     Config = require('./gulp.config'),
     config = new Config(),
-    sourcemaps = require('gulp-sourcemaps');
+    sourcemaps = require('gulp-sourcemaps'),
+    jasmine = require('gulp-jasmine'),
+    del = require('del');
 
-gulp.task('compile', () => {
+gulp.task('clean', () => {
+    return del([config.destination]);
+})
+
+gulp.task('compile', ['clean'], () => {
     return tsProject.src()
         .pipe(sourcemaps.init())
         .pipe(tsProject())
@@ -19,13 +25,22 @@ gulp.task('tslint', () => {
     return gulp.src(config.sourceFiles).pipe(tslint({
         formatter: 'stylish'
     })).pipe(tslint.report({        
-        emitError: false
+        emitError: true
     }));
 });
+
+gulp.task('test', () => {
+    return gulp.src(config.jsTestFiles)
+        .pipe(jasmine({
+            errorOnFail: true,
+            verbose: true,
+            incluseStackTrace: true
+        }));
+})
 
 gulp.task('watch', () => {
     gulp.watch([config.sourceFiles], ['tslint', 'compile']);
 })
 
-gulp.task('default', ['tslint', 'compile'], () => {});
+gulp.task('default', ['tslint', 'compile', 'test'], () => {});
 gulp.task('serve', ['default', 'watch'], () => {});
