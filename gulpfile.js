@@ -43,4 +43,3 @@ gulp.task('watch', () => {
 })
 
 gulp.task('default', ['tslint', 'compile', 'test'], () => {});
-gulp.task('serve', ['default', 'watch'], () => {});

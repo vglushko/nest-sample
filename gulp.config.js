@@ -5,5 +5,5 @@ module.exports = function ctor() {
     this.destination = './dest';
     this.sourceFiles = `${this.source}/**/*.ts`;
     this.testSource = 'specs';
-    this.jsTestFiles = `${this.destination}/${this.testSource}/**/*.ts`;
+    this.jsTestFiles = `${this.destination}/${this.testSource}/**/*.spec.js`;
 }
